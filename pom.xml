@@ -69,6 +69,16 @@
   </dependencies>
   <build>
     <finalName>bolly</finalName>
+    <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
   </build>
   <properties>
   	<spring.version>4.2.3.RELEASE</spring.version>
