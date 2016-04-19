@@ -10,7 +10,7 @@
   
   <logger name="com.bolly" level="TRACE"></logger>
   
-  <root level="ERROR">
+  <root level="WARN">
     <appender-ref ref="FILE"></appender-ref>
   </root>
   
