@@ -1,0 +1,33 @@
+Bolly to do:
+
+Obtain movie data with timestamp. To speed it up, something related to timestamp indexing has to be done so that movies are sorted according to timestamp in a faster way. Or may be the data storing should be like that.
+
+Have tables such as recent,80s,90s,2000s,2010s. For individual years like 1981, query 80s and filter
+Also have tables for categories such as drama,comedy,thriller.
+These extra tables will have movie name and other relevant summary information of the movie. Furthur if complete information is required by user, using id it will be fetched.
+Recent will have latest movie reviews showing up on the home page. During addition of new movie through internal api into recent datatable, the oldest one should automatically get deleted.
+Best of Each year (like awards)
+
+There should be a UI to enter movies. Whenever a movie is entered, it should grab the director/actor name as entered and on the fly search and fetch the matching entries. Selection should be done there itself so that present director/actor id can be associated in the movie json. If nothing is selected and new entry has to be created for director/actor, then id should be created and stored while processing the movie json. For instance if new actor is created, it should carry that movie name and it's basic contents and then store that into actor json. On the fly search of present actors should be done on basis of each word entered i.e. with all first name, middle name and last name.
+
+Each year's page will have Maggy awards
+User comments provision
+
+--- Bolly Website Features File contents ---
+Filtering Best movies according to Directors
+Review on whether Music goes with movie story
+
+2 ratings (one for those who see only hindi movies and one for those who see english movies as well)
+
+2 reviews ( one pre movie and one for those who have watched the movie, this will include discussions as well)
+Best scenes ranking
+
+Let users comment on ratings and rate the movie themselves
+
+Categorize reviews according to Story, Acting, Direction, Music, Dialogues, Editing
+
+betterbollywood.com Use better word in all features like let's better the awards and publish your own awards etc.
+
+member login that will have details regarding the movies they've already seen.
+Something like Genius playlist that will tell good movies according to the taste or any selected movie.
+
