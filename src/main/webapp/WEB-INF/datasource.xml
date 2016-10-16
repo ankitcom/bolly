@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	
+	xsi:schemaLocation="         
+	http://www.springframework.org/schema/beans			http://www.springframework.org/schema/beans/spring-beans.xsd         
+	http://www.springframework.org/schema/context		http://www.springframework.org/schema/context/spring-context.xsd         
+	http://www.springframework.org/schema/mvc			http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/tx			http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<!-- This is needed if you want to use the @Transactional annotation -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+	
+	    <!-- This is the name of the DataSource class provided by the JDBC driver. -->
+	    <property name="dataSourceClassName" value="com.mysql.cj.jdbc.MysqlDataSource" />
+	    <!--This property directs HikariCP to use "DriverManager-based" configuration -->
+	    <property name="dataSourceProperties">
+	        <props>
+	            <prop key="url">${mysql.address}</prop>
+	            <prop key="user">${mysql.username}</prop>
+	            <prop key="password">${mysql.password}</prop>
+	        </props>
+	    </property>
+	    
+		<!--This property controls the maximum number of milliseconds that a client 
+			will wait for a connection from the pool. If this time is exceeded without 
+			a connection becoming available, a SQLException will be thrown. Default: 
+			30000 (30 seconds). Configured to 15 seconds. -->
+		<property name="connectionTimeout" value="15000" />
+		
+		<!--This property controls the maximum amount of time that a connection 
+			is allowed to sit idle in the pool. Default: 600000 (10 minutes). Set to  3 minutes.-->
+		<property name="idleTimeout" value="60000" />
+		
+		<!--This property controls the maximum lifetime of a connection in the 
+			pool.An in-use connection will never be retired. It should be at least 30 
+			seconds less than any database-level connection timeout. Default: 1800000 
+			(30 minutes). Set to 3 hours = 3*60*1000=180000 -->
+		<property name="maxLifetime" value="1800000" />
+		
+		<!--This property controls the maximum size that the pool is allowed to 
+			reach, including both idle and in-use connections. Default: 10 -->
+		<property name="maximumPoolSize" value="10" />
+		
+		<!--This property represents a user-defined name for the connection pool 
+			and appears mainly in logging.Default: auto-generated -->
+	    <property name="poolName" value="springHikariCP" />
+	    
+	    <!--This is the query that will be executed just before a connection is 
+			given to you from the pool to validate that the connection to the database 
+			is still alive. The pool can be configured without this property if driver 
+			type is 4. -->
+		<!-- property name="connectionTestQuery" value="SELECT 1" /-->
+		
+		<!-- This property controls the maximum amount of time that a connection 
+			will be tested for aliveness. This value must be less than the connectionTimeout. 
+			The lowest accepted validation timeout is 1000ms (1 second). Default: 5000. Set to 4 sec. -->
+		<!-- <property name="validationTimeout" value="4000" /> -->
+		
+		<!--This property controls the amount of time that a connection can be 
+			out of the pool before a message is logged indicating a possible connection 
+			leak. A value of 0 means leak detection is disabled. Lowest acceptable value 
+			for enabling leak detection is 2000 (2 secs). Default: 0. Set to 8 sec to 
+			find if the connection are not closed. -->
+		<!-- <property name="leakDetectionThreshold" value="8000" /> -->
+		<property name="minimumIdle" value="5"/>
+	</bean>
+	
+	<bean id="bollyDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+	    <constructor-arg ref="hikariConfig" />
+	</bean>
+
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="bollyDataSource"></property>
+	</bean> -->
+
+	<!-- Configure Spring's transaction manager to use a DataSource -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="bollyDataSource" />
+	</bean>
+
+	<!-- Configure jOOQ's ConnectionProvider to use Spring's TransactionAwareDataSourceProxy,
+         which can dynamically discover the transaction context -->
+    <bean id="transactionAwareDataSource"
+        class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+        <constructor-arg ref="bollyDataSource" />
+    </bean>
+
+    <bean class="org.jooq.impl.DataSourceConnectionProvider" name="connectionProvider">
+        <constructor-arg ref="transactionAwareDataSource" />
+    </bean>
+    
+    <!-- Configure the DSL object, optionally overriding jOOQ Exceptions with Spring Exceptions -->
+    <bean id="dsl" class="org.jooq.impl.DefaultDSLContext">
+        <constructor-arg ref="config" />
+    </bean>
+    
+    <!-- <bean id="exceptionTranslator" class="org.jooq.example.spring.exception.ExceptionTranslator" /> -->
+    
+    <!-- Invoking an internal, package-private constructor for the example
+         Implement your own Configuration for more reliable behaviour -->
+    <bean class="org.jooq.impl.DefaultConfiguration" name="config">
+        <property name="SQLDialect"><value type="org.jooq.SQLDialect">MYSQL</value></property>
+        <property name="connectionProvider" ref="connectionProvider" />
+        <!-- <property name="executeListenerProvider">
+            <array>
+                <bean class="org.jooq.impl.DefaultExecuteListenerProvider">
+                    <constructor-arg index="0" ref="exceptionTranslator"/>
+                </bean>
+            </array>
+        </property> -->
+    </bean>
+    
+</beans>

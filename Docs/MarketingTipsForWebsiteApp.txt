@@ -1,0 +1,19 @@
+Market your app:
+
+Without paying:
+-ASO user search
+-Come in Featured - follow the guidelines. They check lots of permission, apis etc. Use best practices
+-Concentrated effort on all mediums in short span of time to come in Trending
+-Put your app in other stores also like (9apps.com and other Sony,HTC play stores)
+ASO - Keywords as Popular words with lower dificulty. Title weightage is more than shor desc, long desc. Keep experimenting
+
+Paying:
+Ad-networks/Affiliates: Apsalar (CPI model : Cost per install). Create campaigns and share with opera etc for campaigning.
+Check user quality by seeing how much it's spending or how much it's using. Judge a campaign through that
+
+FB - create ad. Cost per click model initially. Apsalar has setting with FB that it pings the user has installed from this source. One more way how FB tracks is if you store fb sdk inside your app. Create multple ads with different configurations and check results.
+CPA - cost per acquisition. Get users of type who'll use a particular feature
+
+Google - Adwords: Create ads on search keywords, negative keywords so that ads are not shown when not required or if you're a cheap ad.
+For websites, the google ad version with search ad should work best
+Universal ad is there in google that's easy and like fb ad
