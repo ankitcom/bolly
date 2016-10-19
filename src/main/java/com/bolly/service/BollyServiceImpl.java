@@ -1,25 +1,34 @@
 package com.bolly.service;
 
+import static com.bolly.constants.Constants.ACTOR_IDS;
+import static com.bolly.constants.Constants.ACTOR_NAMES;
+import static com.bolly.constants.Constants.TYPES;
+import static com.bolly.constants.ErrorConstant.MOVIE_NOT_FOUND;
 import static com.bolly.jooq.Tables.ACTOR;
 import static com.bolly.jooq.Tables.DIRECTOR;
 import static com.bolly.jooq.Tables.MOVIE;
 import static com.bolly.jooq.Tables.MOVIE_ACTOR;
 import static com.bolly.jooq.Tables.MOVIE_TYPE;
+import static org.jooq.impl.DSL.groupConcat;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.jooq.DSLContext;
 import org.jooq.Record;
-import org.jooq.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bolly.exception.AppException;
 import com.bolly.model.Movie;
+import com.bolly.model.Movie.MovieBuilder;
+import com.bolly.model.Person;
 
 /**
  * 
@@ -35,37 +44,64 @@ public class BollyServiceImpl {
 	@Autowired
 	DSLContext dsl;
 	
-	public Result<Record> getMovies(){
+	public List<Movie> getRecentMovies(int recentCount){
 
-		Result<Record> result=dsl.select().from(MOVIE).fetch();
+		List<Movie> movies=new ArrayList<>(recentCount);
+		dsl.select().from(MOVIE).orderBy(MOVIE.RELEASE_DATE.desc()).limit(recentCount).fetch().forEach(record -> {
+			movies.add(
+				Movie.builder().id(record.getValue(MOVIE.ID)).name(record.getValue(MOVIE.NAME))
+				.rating(record.getValue(MOVIE.RATING)).releaseDate(record.getValue(MOVIE.RELEASE_DATE))
+				.build()
+			);
+		});
 		
-		for (Record r : result) {
-		    Integer id = r.getValue(MOVIE.ID);
-		    String name = r.getValue(MOVIE.NAME);
-		    int rating = r.getValue(MOVIE.RATING);
-
-		    logger.debug("ID: {} first name:{}  last name: {}",id, name, rating);
+		logger.trace("Movies count:{}",movies.size());
+		return movies;
+	}
+	
+	public Movie getMovie(int id) throws AppException{
+		Record record = dsl.select(MOVIE.fields()).select(groupConcat(ACTOR.ID,",").as(ACTOR_IDS),groupConcat(ACTOR.NAME,",").as(ACTOR_NAMES)
+				,groupConcat(MOVIE_TYPE.TYPE_ID,",").as(TYPES), DIRECTOR.NAME)
+		.from(MOVIE).join(DIRECTOR).on(MOVIE.DIRECTOR_ID.equal(DIRECTOR.ID)).leftJoin(MOVIE_ACTOR).on(MOVIE.ID.equal(MOVIE_ACTOR.MOVIE_ID))
+		.leftJoin(ACTOR).on(MOVIE_ACTOR.ACTOR_ID.equal(ACTOR.ID)).leftJoin(MOVIE_TYPE).on(MOVIE.ID.equal(MOVIE_TYPE.MOVIE_ID))
+		.where(MOVIE.ID.equal(id)).groupBy(MOVIE.ID).fetchOne();
+		
+		if(record==null) throw new AppException(101, MOVIE_NOT_FOUND);
+		
+		MovieBuilder mb = Movie.builder().id(record.getValue(MOVIE.ID)).name(record.getValue(MOVIE.NAME)).onlineStreamLink(record.getValue(MOVIE.ONLINE_STREAM_LINK))
+		.rating(record.getValue(MOVIE.RATING)).review(record.getValue(MOVIE.REVIEW)).releaseDate(record.getValue(MOVIE.RELEASE_DATE))
+		.releaseYear(record.getValue(MOVIE.RELEASE_YEAR)).writer(record.getValue(MOVIE.WRITER));
+		
+		mb.director(Person.builder().id(record.getValue(DIRECTOR.ID)).name(record.getValue(DIRECTOR.NAME)).build());
+		
+		String actorIdsGet=record.getValue(ACTOR_IDS, String.class);
+		if(actorIdsGet!=null){
+			Set<Person> actors=new HashSet<>();
+			String[] actorIds=actorIdsGet.split(",");
+			String[] actorNames=record.getValue(ACTOR_NAMES, String.class).split(",");
+			for(int i=0;i<actorIds.length;i++){
+				actors.add(Person.builder().id(Integer.parseInt(actorIds[i])).name(actorNames[i]).build());
+			}
+			mb.actors(actors);
 		}
-		return result;
+		
+		String typesGet=record.getValue(TYPES, String.class);
+		if(typesGet!=null){
+			Set<Integer> typeIds=new HashSet<>();
+			String[] types=typesGet.split(",");
+			for(int i=0;i<types.length;i++){
+				typeIds.add(Integer.parseInt(types[i]));
+			}
+			mb.typeIds(typeIds);
+		}
+		
+		return mb.build();
 	}
 
 	@Transactional
 	public int addMovie(Movie movie) {
 		
-		if(movie.getDirector().getId()<=0){
-			movie.getDirector().setId(dsl.insertInto(DIRECTOR).set(DIRECTOR.NAME,movie.getDirector().getName()).returning(DIRECTOR.ID).fetchOne().getId());
-		}
-		
-		List<Integer> actorIds=new ArrayList<>();
-		if(movie.getActors()!=null){
-			movie.getActors().forEach( actor -> {
-				if(actor.getId()>0){
-					actorIds.add(actor.getId());
-				}else{
-					actorIds.add(dsl.insertInto(ACTOR).set(ACTOR.NAME,actor.getName()).returning(ACTOR.ID).fetchOne().getId());
-				}
-			} );
-		}
+		dsl.insertInto(DIRECTOR).set(DIRECTOR.NAME,movie.getDirector().getName()).onDuplicateKeyIgnore().execute();
 		
 		Calendar cal=Calendar.getInstance();
 		cal.setTimeInMillis(movie.getReleaseDate().getTime());
@@ -78,11 +114,18 @@ public class BollyServiceImpl {
 			.set(MOVIE.RELEASE_DECADE,(releaseYear/10) * 10)
 			.set(MOVIE.REVIEW, movie.getReview())
 			.set(MOVIE.WRITER, movie.getWriter())
-			.set(MOVIE.DIRECTOR_ID, movie.getDirector().getId())
+			.set(MOVIE.DIRECTOR_ID, dsl.select(DIRECTOR.ID).from(DIRECTOR).where(DIRECTOR.NAME.equal(movie.getDirector().getName())))
 			.returning(MOVIE.ID).fetchOne().getId();
 		
+		if(movie.getActors()!=null){
+			movie.getActors().forEach( actor -> {
+				dsl.insertInto(ACTOR).set(ACTOR.NAME,actor.getName()).onDuplicateKeyIgnore().execute();
+				dsl.insertInto(MOVIE_ACTOR).set(MOVIE_ACTOR.MOVIE_ID,movieId)
+					.set(MOVIE_ACTOR.ACTOR_ID,dsl.select(ACTOR.ID).from(ACTOR).where(ACTOR.NAME.equal(actor.getName()))).execute();
+			} );
+		}
+		
 		if(movie.getTypeIds()!=null) movie.getTypeIds().forEach(id -> dsl.insertInto(MOVIE_TYPE).set(MOVIE_TYPE.MOVIE_ID,movieId).set(MOVIE_TYPE.TYPE_ID,id).execute());
-		actorIds.forEach(id -> dsl.insertInto(MOVIE_ACTOR).set(MOVIE_ACTOR.MOVIE_ID,movieId).set(MOVIE_ACTOR.ACTOR_ID,id).execute());
 		
 		return movieId;
 	}

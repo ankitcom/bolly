@@ -25,12 +25,13 @@ create table `MOVIE` (
 	`release_date` date NOT NULL,
 	`release_year` int(4) NOT NULL,
 	`release_decade` int(4) NOT NULL,
+	`image_url` varchar(32),
 	CONSTRAINT `fk_m_dir` FOREIGN KEY (`director_id`) REFERENCES `DIRECTOR` (`id`),
 	PRIMARY KEY (`id`)
 );
 CREATE INDEX idx_movie_director ON MOVIE (director_id);
 #CREATE INDEX idx_movie_date ON MOVIE (release_date);
-CREATE INDEX idx_movie_year ON MOVIE (release_year);
+CREATE UNIQUE INDEX idx_movie_year_name ON MOVIE (release_year, name);
 #CREATE INDEX idx_movie_decade ON MOVIE (release_decade);
 #above indexes on release times can be avoided if redis cache is introduced to cache all the required jsons for all year/times categories
 
