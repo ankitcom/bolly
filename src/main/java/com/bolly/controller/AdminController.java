@@ -1,6 +1,7 @@
 package com.bolly.controller;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,11 +16,11 @@ import com.bolly.model.Movie;
 @RequestMapping("/admin")
 public class AdminController extends CommonController{
 
-	private static Logger logger =  org.slf4j.LoggerFactory.getLogger(AdminController.class);
+	private static Logger logger =  LoggerFactory.getLogger(AdminController.class);
 	
 	@RequestMapping(value = "movie", method = RequestMethod.POST, produces = "application/json")
 	public ApiResponse addMovie(@RequestBody Movie movie){
-		logger.debug("At addMovie");
+		logger.trace("At addMovie");
 		int id=bollyServiceImpl.addMovie(movie);
 		return ApiResponse.builder().ok(true).message("Movie added with id:"+id).build();
 	}

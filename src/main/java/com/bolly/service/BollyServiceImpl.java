@@ -11,6 +11,7 @@ import static com.bolly.jooq.Tables.MOVIE_ACTOR;
 import static com.bolly.jooq.Tables.MOVIE_TYPE;
 import static org.jooq.impl.DSL.groupConcat;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -80,17 +81,17 @@ public class BollyServiceImpl {
 			String[] actorIds=actorIdsGet.split(",");
 			String[] actorNames=record.getValue(ACTOR_NAMES, String.class).split(",");
 			for(int i=0;i<actorIds.length;i++){
-				actors.add(Person.builder().id(Integer.parseInt(actorIds[i])).name(actorNames[i]).build());
+				actors.add(Person.builder().id(Short.parseShort(actorIds[i])).name(actorNames[i]).build());
 			}
 			mb.actors(actors);
 		}
 		
 		String typesGet=record.getValue(TYPES, String.class);
 		if(typesGet!=null){
-			Set<Integer> typeIds=new HashSet<>();
+			Set<Byte> typeIds=new HashSet<>();
 			String[] types=typesGet.split(",");
 			for(int i=0;i<types.length;i++){
-				typeIds.add(Integer.parseInt(types[i]));
+				typeIds.add(Byte.parseByte(types[i]));
 			}
 			mb.typeIds(typeIds);
 		}
@@ -106,15 +107,17 @@ public class BollyServiceImpl {
 		Calendar cal=Calendar.getInstance();
 		cal.setTimeInMillis(movie.getReleaseDate().getTime());
 		int releaseYear=cal.get(Calendar.YEAR);
+		int releaseDecade=(releaseYear/10) * 10;
 		int movieId = dsl.insertInto(MOVIE)
 			.set(MOVIE.NAME,movie.getName())
 			.set(MOVIE.ONLINE_STREAM_LINK,movie.getOnlineStreamLink())
-			.set(MOVIE.RATING,movie.getRating()).set(MOVIE.RELEASE_DATE,movie.getReleaseDate())
-			.set(MOVIE.RELEASE_YEAR,releaseYear)
-			.set(MOVIE.RELEASE_DECADE,(releaseYear/10) * 10)
+			.set(MOVIE.RATING,movie.getRating()).set(MOVIE.RELEASE_DATE,new Date(movie.getReleaseDate().getTime()))
+			.set(MOVIE.RELEASE_YEAR,(short)releaseYear)
+			.set(MOVIE.RELEASE_DECADE,(short)releaseDecade)
 			.set(MOVIE.REVIEW, movie.getReview())
 			.set(MOVIE.WRITER, movie.getWriter())
 			.set(MOVIE.DIRECTOR_ID, dsl.select(DIRECTOR.ID).from(DIRECTOR).where(DIRECTOR.NAME.equal(movie.getDirector().getName())))
+			.set(MOVIE.IMAGE_URL, movie.getImageUrl())
 			.returning(MOVIE.ID).fetchOne().getId();
 		
 		if(movie.getActors()!=null){

@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class MovieType extends TableImpl<MovieTypeRecord> {
 
-    private static final long serialVersionUID = -1815651496;
+    private static final long serialVersionUID = -61414035;
 
     /**
      * The reference instance of <code>bolly.MOVIE_TYPE</code>
@@ -58,7 +58,7 @@ public class MovieType extends TableImpl<MovieTypeRecord> {
     /**
      * The column <code>bolly.MOVIE_TYPE.type_id</code>.
      */
-    public final TableField<MovieTypeRecord, Integer> TYPE_ID = createField("type_id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MovieTypeRecord, Byte> TYPE_ID = createField("type_id", org.jooq.impl.SQLDataType.TINYINT.nullable(false), this, "");
 
     /**
      * Create a <code>bolly.MOVIE_TYPE</code> table reference

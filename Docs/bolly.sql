@@ -7,7 +7,7 @@ DROP TABLE MOVIE;
 DROP TABLE DIRECTOR;
 
 create table `DIRECTOR` (
-	`id` int(8) NOT NULL AUTO_INCREMENT,
+	`id` smallint NOT NULL AUTO_INCREMENT,
 	`name` varchar(32) NOT NULL,
 	`highest_rated_movie` varchar(32),
 	UNIQUE KEY `dir_name_uniq` (`name`),
@@ -15,17 +15,17 @@ create table `DIRECTOR` (
 );
 
 create table `MOVIE` (
-	`id` int(8) NOT NULL AUTO_INCREMENT,
+	`id` int NOT NULL AUTO_INCREMENT,
 	`name` varchar(32) NOT NULL,
 	`online_stream_link` varchar(32),
-	`rating` int(1) NOT NULL,
-	`review` varchar(2048),
-	`director_id` int(8) NOT NULL,
-	`writer` varchar(32),
+	`rating` tinyint(2) NOT NULL,
+	`review` varchar(4096),
+	`director_id` smallint NOT NULL,
+	`writer` varchar(128),
 	`release_date` date NOT NULL,
-	`release_year` int(4) NOT NULL,
-	`release_decade` int(4) NOT NULL,
-	`image_url` varchar(32),
+	`release_year` smallint NOT NULL,
+	`release_decade` smallint NOT NULL,
+	`image_url` varchar(512),
 	CONSTRAINT `fk_m_dir` FOREIGN KEY (`director_id`) REFERENCES `DIRECTOR` (`id`),
 	PRIMARY KEY (`id`)
 );
@@ -36,7 +36,7 @@ CREATE UNIQUE INDEX idx_movie_year_name ON MOVIE (release_year, name);
 #above indexes on release times can be avoided if redis cache is introduced to cache all the required jsons for all year/times categories
 
 create table `TYPE` (
-	`id` int(2) NOT NULL AUTO_INCREMENT,
+	`id` tinyint(2) NOT NULL AUTO_INCREMENT,
 	`type_name` varchar(16) NOT NULL,
 	PRIMARY KEY (`id`)
 );
@@ -55,8 +55,8 @@ insert into TYPE (id,type_name) values (12,'Animation');
 
 
 create table `MOVIE_TYPE` (
-	`movie_id` int(8) NOT NULL,
-	`type_id` int(2) NOT NULL,
+	`movie_id` int NOT NULL,
+	`type_id` tinyint(2) NOT NULL,
 	UNIQUE KEY `mt_uniq` (`movie_id`,`type_id`),
 	CONSTRAINT `fk_mt_mov` FOREIGN KEY (`movie_id`) REFERENCES `MOVIE` (`id`),
 	CONSTRAINT `fk_mt_type` FOREIGN KEY (`type_id`) REFERENCES `TYPE` (`id`)
@@ -64,7 +64,7 @@ create table `MOVIE_TYPE` (
 CREATE INDEX idx_mt_movie ON MOVIE_TYPE (movie_id);
 
 create table `ACTOR` (
-	`id` int(8) NOT NULL AUTO_INCREMENT,
+	`id` smallint NOT NULL AUTO_INCREMENT,
 	`name` varchar(32) NOT NULL,
 	`highest_rated_movie` varchar(32),
 	UNIQUE KEY `actor_name_uniq` (`name`),
@@ -72,8 +72,8 @@ create table `ACTOR` (
 );
 
 create table `MOVIE_ACTOR` (
-	`movie_id` int(8) NOT NULL,
-	`actor_id` int(8) NOT NULL,
+	`movie_id` int NOT NULL,
+	`actor_id` smallint NOT NULL,
 	UNIQUE KEY `ma_uniq` (`movie_id`,`actor_id`),
 	CONSTRAINT `fk_ma_mov` FOREIGN KEY (`movie_id`) REFERENCES `MOVIE` (`id`),
 	CONSTRAINT `fk_ma_act` FOREIGN KEY (`actor_id`) REFERENCES `ACTOR` (`id`)

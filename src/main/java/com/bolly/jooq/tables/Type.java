@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Type extends TableImpl<TypeRecord> {
 
-    private static final long serialVersionUID = -1377964594;
+    private static final long serialVersionUID = 837236283;
 
     /**
      * The reference instance of <code>bolly.TYPE</code>
@@ -53,7 +53,7 @@ public class Type extends TableImpl<TypeRecord> {
     /**
      * The column <code>bolly.TYPE.id</code>.
      */
-    public final TableField<TypeRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<TypeRecord, Byte> ID = createField("id", org.jooq.impl.SQLDataType.TINYINT.nullable(false), this, "");
 
     /**
      * The column <code>bolly.TYPE.type_name</code>.
@@ -94,7 +94,7 @@ public class Type extends TableImpl<TypeRecord> {
      * {@inheritDoc}
      */
     @Override
-    public Identity<TypeRecord, Integer> getIdentity() {
+    public Identity<TypeRecord, Byte> getIdentity() {
         return Keys.IDENTITY_TYPE;
     }
 

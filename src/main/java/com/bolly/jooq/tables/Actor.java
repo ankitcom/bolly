@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Actor extends TableImpl<ActorRecord> {
 
-    private static final long serialVersionUID = 608126905;
+    private static final long serialVersionUID = 966116400;
 
     /**
      * The reference instance of <code>bolly.ACTOR</code>
@@ -53,7 +53,7 @@ public class Actor extends TableImpl<ActorRecord> {
     /**
      * The column <code>bolly.ACTOR.id</code>.
      */
-    public final TableField<ActorRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<ActorRecord, Short> ID = createField("id", org.jooq.impl.SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
      * The column <code>bolly.ACTOR.name</code>.
@@ -99,7 +99,7 @@ public class Actor extends TableImpl<ActorRecord> {
      * {@inheritDoc}
      */
     @Override
-    public Identity<ActorRecord, Integer> getIdentity() {
+    public Identity<ActorRecord, Short> getIdentity() {
         return Keys.IDENTITY_ACTOR;
     }
 
@@ -116,7 +116,7 @@ public class Actor extends TableImpl<ActorRecord> {
      */
     @Override
     public List<UniqueKey<ActorRecord>> getKeys() {
-        return Arrays.<UniqueKey<ActorRecord>>asList(Keys.KEY_ACTOR_PRIMARY);
+        return Arrays.<UniqueKey<ActorRecord>>asList(Keys.KEY_ACTOR_PRIMARY, Keys.KEY_ACTOR_ACTOR_NAME_UNIQ);
     }
 
     /**

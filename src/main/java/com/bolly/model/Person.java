@@ -15,7 +15,7 @@ import lombok.Setter;
 @EqualsAndHashCode(exclude="id")
 public class Person {
 
-	private Integer id;
+	private Short id;
 	private String name;
 	
 }

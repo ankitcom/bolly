@@ -37,7 +37,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Movie extends TableImpl<MovieRecord> {
 
-    private static final long serialVersionUID = 1547452295;
+    private static final long serialVersionUID = -886827264;
 
     /**
      * The reference instance of <code>bolly.MOVIE</code>
@@ -70,7 +70,7 @@ public class Movie extends TableImpl<MovieRecord> {
     /**
      * The column <code>bolly.MOVIE.rating</code>.
      */
-    public final TableField<MovieRecord, Integer> RATING = createField("rating", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MovieRecord, Byte> RATING = createField("rating", org.jooq.impl.SQLDataType.TINYINT.nullable(false), this, "");
 
     /**
      * The column <code>bolly.MOVIE.review</code>.
@@ -80,7 +80,7 @@ public class Movie extends TableImpl<MovieRecord> {
     /**
      * The column <code>bolly.MOVIE.director_id</code>.
      */
-    public final TableField<MovieRecord, Integer> DIRECTOR_ID = createField("director_id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MovieRecord, Short> DIRECTOR_ID = createField("director_id", org.jooq.impl.SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
      * The column <code>bolly.MOVIE.writer</code>.
@@ -95,12 +95,17 @@ public class Movie extends TableImpl<MovieRecord> {
     /**
      * The column <code>bolly.MOVIE.release_year</code>.
      */
-    public final TableField<MovieRecord, Integer> RELEASE_YEAR = createField("release_year", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MovieRecord, Short> RELEASE_YEAR = createField("release_year", org.jooq.impl.SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
      * The column <code>bolly.MOVIE.release_decade</code>.
      */
-    public final TableField<MovieRecord, Integer> RELEASE_DECADE = createField("release_decade", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MovieRecord, Short> RELEASE_DECADE = createField("release_decade", org.jooq.impl.SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>bolly.MOVIE.image_url</code>.
+     */
+    public final TableField<MovieRecord, String> IMAGE_URL = createField("image_url", org.jooq.impl.SQLDataType.VARCHAR.length(32), this, "");
 
     /**
      * Create a <code>bolly.MOVIE</code> table reference
@@ -153,7 +158,7 @@ public class Movie extends TableImpl<MovieRecord> {
      */
     @Override
     public List<UniqueKey<MovieRecord>> getKeys() {
-        return Arrays.<UniqueKey<MovieRecord>>asList(Keys.KEY_MOVIE_PRIMARY);
+        return Arrays.<UniqueKey<MovieRecord>>asList(Keys.KEY_MOVIE_PRIMARY, Keys.KEY_MOVIE_IDX_MOVIE_YEAR_NAME);
     }
 
     /**

@@ -1,6 +1,6 @@
 package com.bolly.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -28,13 +28,14 @@ public class Movie {
 	private int id;
 	private String name;
 	private String onlineStreamLink;
-	private int rating;
+	private byte rating;
 	private String review;
 	private String writer;
 	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date releaseDate;
-	private Integer releaseYear;
-	private Set<Integer> typeIds;
+	private Short releaseYear;
+	private Set<Byte> typeIds;
 	private Person director;
 	private Set<Person> actors;
+	private String imageUrl;
 }

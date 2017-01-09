@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Director extends TableImpl<DirectorRecord> {
 
-    private static final long serialVersionUID = 1048144185;
+    private static final long serialVersionUID = 947958413;
 
     /**
      * The reference instance of <code>bolly.DIRECTOR</code>
@@ -53,7 +53,7 @@ public class Director extends TableImpl<DirectorRecord> {
     /**
      * The column <code>bolly.DIRECTOR.id</code>.
      */
-    public final TableField<DirectorRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<DirectorRecord, Short> ID = createField("id", org.jooq.impl.SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
      * The column <code>bolly.DIRECTOR.name</code>.
@@ -99,7 +99,7 @@ public class Director extends TableImpl<DirectorRecord> {
      * {@inheritDoc}
      */
     @Override
-    public Identity<DirectorRecord, Integer> getIdentity() {
+    public Identity<DirectorRecord, Short> getIdentity() {
         return Keys.IDENTITY_DIRECTOR;
     }
 

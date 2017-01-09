@@ -43,19 +43,21 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
-    public static final Identity<ActorRecord, Integer> IDENTITY_ACTOR = Identities0.IDENTITY_ACTOR;
-    public static final Identity<DirectorRecord, Integer> IDENTITY_DIRECTOR = Identities0.IDENTITY_DIRECTOR;
+    public static final Identity<ActorRecord, Short> IDENTITY_ACTOR = Identities0.IDENTITY_ACTOR;
+    public static final Identity<DirectorRecord, Short> IDENTITY_DIRECTOR = Identities0.IDENTITY_DIRECTOR;
     public static final Identity<MovieRecord, Integer> IDENTITY_MOVIE = Identities0.IDENTITY_MOVIE;
-    public static final Identity<TypeRecord, Integer> IDENTITY_TYPE = Identities0.IDENTITY_TYPE;
+    public static final Identity<TypeRecord, Byte> IDENTITY_TYPE = Identities0.IDENTITY_TYPE;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
     public static final UniqueKey<ActorRecord> KEY_ACTOR_PRIMARY = UniqueKeys0.KEY_ACTOR_PRIMARY;
+    public static final UniqueKey<ActorRecord> KEY_ACTOR_ACTOR_NAME_UNIQ = UniqueKeys0.KEY_ACTOR_ACTOR_NAME_UNIQ;
     public static final UniqueKey<DirectorRecord> KEY_DIRECTOR_PRIMARY = UniqueKeys0.KEY_DIRECTOR_PRIMARY;
     public static final UniqueKey<DirectorRecord> KEY_DIRECTOR_DIR_NAME_UNIQ = UniqueKeys0.KEY_DIRECTOR_DIR_NAME_UNIQ;
     public static final UniqueKey<MovieRecord> KEY_MOVIE_PRIMARY = UniqueKeys0.KEY_MOVIE_PRIMARY;
+    public static final UniqueKey<MovieRecord> KEY_MOVIE_IDX_MOVIE_YEAR_NAME = UniqueKeys0.KEY_MOVIE_IDX_MOVIE_YEAR_NAME;
     public static final UniqueKey<MovieActorRecord> KEY_MOVIE_ACTOR_MA_UNIQ = UniqueKeys0.KEY_MOVIE_ACTOR_MA_UNIQ;
     public static final UniqueKey<MovieTypeRecord> KEY_MOVIE_TYPE_MT_UNIQ = UniqueKeys0.KEY_MOVIE_TYPE_MT_UNIQ;
     public static final UniqueKey<TypeRecord> KEY_TYPE_PRIMARY = UniqueKeys0.KEY_TYPE_PRIMARY;
@@ -75,17 +77,19 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 extends AbstractKeys {
-        public static Identity<ActorRecord, Integer> IDENTITY_ACTOR = createIdentity(Actor.ACTOR, Actor.ACTOR.ID);
-        public static Identity<DirectorRecord, Integer> IDENTITY_DIRECTOR = createIdentity(Director.DIRECTOR, Director.DIRECTOR.ID);
+        public static Identity<ActorRecord, Short> IDENTITY_ACTOR = createIdentity(Actor.ACTOR, Actor.ACTOR.ID);
+        public static Identity<DirectorRecord, Short> IDENTITY_DIRECTOR = createIdentity(Director.DIRECTOR, Director.DIRECTOR.ID);
         public static Identity<MovieRecord, Integer> IDENTITY_MOVIE = createIdentity(Movie.MOVIE, Movie.MOVIE.ID);
-        public static Identity<TypeRecord, Integer> IDENTITY_TYPE = createIdentity(Type.TYPE, Type.TYPE.ID);
+        public static Identity<TypeRecord, Byte> IDENTITY_TYPE = createIdentity(Type.TYPE, Type.TYPE.ID);
     }
 
     private static class UniqueKeys0 extends AbstractKeys {
         public static final UniqueKey<ActorRecord> KEY_ACTOR_PRIMARY = createUniqueKey(Actor.ACTOR, "KEY_ACTOR_PRIMARY", Actor.ACTOR.ID);
+        public static final UniqueKey<ActorRecord> KEY_ACTOR_ACTOR_NAME_UNIQ = createUniqueKey(Actor.ACTOR, "KEY_ACTOR_actor_name_uniq", Actor.ACTOR.NAME);
         public static final UniqueKey<DirectorRecord> KEY_DIRECTOR_PRIMARY = createUniqueKey(Director.DIRECTOR, "KEY_DIRECTOR_PRIMARY", Director.DIRECTOR.ID);
         public static final UniqueKey<DirectorRecord> KEY_DIRECTOR_DIR_NAME_UNIQ = createUniqueKey(Director.DIRECTOR, "KEY_DIRECTOR_dir_name_uniq", Director.DIRECTOR.NAME);
         public static final UniqueKey<MovieRecord> KEY_MOVIE_PRIMARY = createUniqueKey(Movie.MOVIE, "KEY_MOVIE_PRIMARY", Movie.MOVIE.ID);
+        public static final UniqueKey<MovieRecord> KEY_MOVIE_IDX_MOVIE_YEAR_NAME = createUniqueKey(Movie.MOVIE, "KEY_MOVIE_idx_movie_year_name", Movie.MOVIE.RELEASE_YEAR, Movie.MOVIE.NAME);
         public static final UniqueKey<MovieActorRecord> KEY_MOVIE_ACTOR_MA_UNIQ = createUniqueKey(MovieActor.MOVIE_ACTOR, "KEY_MOVIE_ACTOR_ma_uniq", MovieActor.MOVIE_ACTOR.MOVIE_ID, MovieActor.MOVIE_ACTOR.ACTOR_ID);
         public static final UniqueKey<MovieTypeRecord> KEY_MOVIE_TYPE_MT_UNIQ = createUniqueKey(MovieType.MOVIE_TYPE, "KEY_MOVIE_TYPE_mt_uniq", MovieType.MOVIE_TYPE.MOVIE_ID, MovieType.MOVIE_TYPE.TYPE_ID);
         public static final UniqueKey<TypeRecord> KEY_TYPE_PRIMARY = createUniqueKey(Type.TYPE, "KEY_TYPE_PRIMARY", Type.TYPE.ID);
