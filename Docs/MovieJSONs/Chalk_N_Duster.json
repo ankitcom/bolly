@@ -1,0 +1,28 @@
+{
+  "name":"Chalk N Duster",
+  "director":{
+    "name":"Jayant Gilatar"
+  },
+  "rating":4,
+  "releaseDate":"15-01-2016",
+  "writer":"Neetu Varma",
+  "actors":[
+    {
+      "name":"Shabana Azmi"
+    },
+    {
+      "name":"Juhi Chawla"
+    },
+    {
+      "name":"Arya Babbar"
+    },
+    {
+      "name":"Divya Dutta"
+    },
+    {
+      "name":"Richa Chadha"
+    }
+  ],
+  "imageUrl":"http://www.trendinfo.in/wp-content/uploads/2016/01/chalk-n-duster-01.jpg",
+  "typeIds":[2,7]
+}

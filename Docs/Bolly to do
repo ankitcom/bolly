@@ -1,3 +1,5 @@
+In DB: Fix release dates, update writers. Review content corrections, to make paragraphs by putting new line 
+----
 Bolly to do:
 
 Least frequenty used cached for movies. This is required so that movies that are viewed a lot will be cached.
@@ -39,15 +41,50 @@ member login that will have details regarding the movies they've already seen.
 Something like Genius playlist that will tell good movies according to the taste or any selected movie.
 
 --------------
+COMPLETE MYSQL SERVER CLIENT SETUP:
 
-update user set authentication_string=password('Sturridge@15') where user='root';
+wget "http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm"
+sudo yum localinstall mysql57-community-release-el7-9.noarch.rpm
+sudo yum install mysql-community-server
+sudo service mysqld start (systemctl start  mysqld.service)
+sudo chkconfig mysqld on (systemctl enable mysqld.service) -> To start mysqld on server restart
+
+sudo service mysqld stop
+Add --skip-grant-tables in executable path (ExecStart=) in (/usr/lib/systemd/system/mysqld.service file)
+sudo systemctl daemon-reload
+sudo service mysqld start
+
+mysql
+update mysql.user set authentication_string=password('Sturridge@15') where user='root';
+exit
+sudo service mysqld stop
+remove --skip-grant-tables in executable path in /usr/lib/systemd/system/mysqld.service file
+sudo systemctl daemon-reload
+sudo service mysqld start
+mysql -u root -pSturridge@15
+SET PASSWORD = PASSWORD('Sturridge@15');
 CREATE USER 'bolly'@'localhost' IDENTIFIED BY 'Sturridge@15';
-mysql.server restart
+GRANT ALL ON *.* TO 'bolly'@'localhost';
+exit
+sudo service mysqld stop
+sudo service mysqld start (mysql.server restart)
+mysql -u bolly -pSturridge@15
+create database bolly;
+exit
 mysql -u bolly -pSturridge@15 bolly
+
+FOR OUTSIDE ACCESS;
+mysql -u root -pSturridge@15
+CREATE USER 'bolly'@'%' IDENTIFIED BY 'Sturridge@15';
+GRANT ALL PRIVILEGES ON *.* TO 'bolly'@'%';
 
 ----------------
 java -classpath /Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/jooq-3.8.4.jar:/Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/jooq-meta-3.8.4.jar:/Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/jooq-codegen-3.8.4.jar:/Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/mysql-connector-java-6.0.4.jar:/Users/ankit.bhatnagar/git/bolly/bolly/src/main/resources/ org.jooq.util.GenerationTool /Users/ankit.bhatnagar/git/bolly/bolly/Docs/bolly.xml
 ----------------
+/etc/httpd/conf.d/httpd-ssl.conf
+JkMount /bolly/* node2
+----------------
+
 
 {
   "name":"No Smoking",

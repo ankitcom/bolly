@@ -1,0 +1,27 @@
+{
+  "name":"No Smoking",
+  "director":{
+    "name":"Anurag Kashyap"
+  },
+  "rating":10,
+  "releaseDate":"26-10-2007",
+  "writer":"Anurag Kashyap",
+  "actors":[
+    {
+      "name":"John Abraham"
+    },
+    {
+      "name":"Ayesha Takia"
+    },
+    {
+      "name":"Paresh Rawal"
+    },
+    {
+      "name":"Ranvir Shorey"
+    }
+  ],
+  "review":"This movie is a subject. More you watch, you grow from elementary to reach a Ph.D. level. Every scene is tailor-made and throws some excitement. Anurag Kashyap has made a marvelous script which is directed wonderfully by him. Acting performances are neither a concern here nor a topic of discussion. Amalgamated by excellent situational music by Vishal Bharadwaj, this masterpiece is one of the best Bollywood movies that should be boasted proudly.\n\nStoryline Rating: 5\n\nActing Rating: 3\nJohn Abraham: 3\nAyesha Takia: 3\nParesh Rawal: 4\nRanvir Shorey: 3\n\nDirection Rating: 5\n\nMusic Rating: 4\n\nCinematography: 3\n\nEditing: 5",
+  "imageUrl":"http://www.machax.com/wp-content/uploads/2015/05/movgal200289.jpg",
+  "typeIds":[1]
+}
+

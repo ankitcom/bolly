@@ -50,8 +50,13 @@ public class BollyServiceImpl {
 		List<Movie> movies=new ArrayList<>(recentCount);
 		dsl.select().from(MOVIE).orderBy(MOVIE.RELEASE_DATE.desc()).limit(recentCount).fetch().forEach(record -> {
 			movies.add(
-				Movie.builder().id(record.getValue(MOVIE.ID)).name(record.getValue(MOVIE.NAME))
-				.rating(record.getValue(MOVIE.RATING)).releaseDate(record.getValue(MOVIE.RELEASE_DATE))
+				Movie.builder()
+				.id(record.getValue(MOVIE.ID))
+				.name(record.getValue(MOVIE.NAME))
+				.rating(record.getValue(MOVIE.RATING).intValue())
+				.releaseDate(record.getValue(MOVIE.RELEASE_DATE))
+				.releaseYear(record.getValue(MOVIE.RELEASE_YEAR))
+				.imageUrl(record.getValue(MOVIE.IMAGE_URL))
 				.build()
 			);
 		});
@@ -70,7 +75,7 @@ public class BollyServiceImpl {
 		if(record==null) throw new AppException(101, MOVIE_NOT_FOUND);
 		
 		MovieBuilder mb = Movie.builder().id(record.getValue(MOVIE.ID)).name(record.getValue(MOVIE.NAME)).onlineStreamLink(record.getValue(MOVIE.ONLINE_STREAM_LINK))
-		.rating(record.getValue(MOVIE.RATING)).review(record.getValue(MOVIE.REVIEW)).releaseDate(record.getValue(MOVIE.RELEASE_DATE))
+		.rating(record.getValue(MOVIE.RATING).intValue()).review(record.getValue(MOVIE.REVIEW)).releaseDate(record.getValue(MOVIE.RELEASE_DATE))
 		.releaseYear(record.getValue(MOVIE.RELEASE_YEAR)).writer(record.getValue(MOVIE.WRITER));
 		
 		mb.director(Person.builder().id(record.getValue(DIRECTOR.ID)).name(record.getValue(DIRECTOR.NAME)).build());
@@ -81,17 +86,17 @@ public class BollyServiceImpl {
 			String[] actorIds=actorIdsGet.split(",");
 			String[] actorNames=record.getValue(ACTOR_NAMES, String.class).split(",");
 			for(int i=0;i<actorIds.length;i++){
-				actors.add(Person.builder().id(Short.parseShort(actorIds[i])).name(actorNames[i]).build());
+				actors.add(Person.builder().id(Integer.parseInt(actorIds[i])).name(actorNames[i]).build());
 			}
 			mb.actors(actors);
 		}
 		
 		String typesGet=record.getValue(TYPES, String.class);
 		if(typesGet!=null){
-			Set<Byte> typeIds=new HashSet<>();
+			Set<Integer> typeIds=new HashSet<>();
 			String[] types=typesGet.split(",");
 			for(int i=0;i<types.length;i++){
-				typeIds.add(Byte.parseByte(types[i]));
+				typeIds.add(Integer.parseInt(types[i]));
 			}
 			mb.typeIds(typeIds);
 		}
@@ -111,9 +116,10 @@ public class BollyServiceImpl {
 		int movieId = dsl.insertInto(MOVIE)
 			.set(MOVIE.NAME,movie.getName())
 			.set(MOVIE.ONLINE_STREAM_LINK,movie.getOnlineStreamLink())
-			.set(MOVIE.RATING,movie.getRating()).set(MOVIE.RELEASE_DATE,new Date(movie.getReleaseDate().getTime()))
-			.set(MOVIE.RELEASE_YEAR,(short)releaseYear)
-			.set(MOVIE.RELEASE_DECADE,(short)releaseDecade)
+			.set(MOVIE.RATING,movie.getRating()!=null?movie.getRating().byteValue():null)
+			.set(MOVIE.RELEASE_DATE,new Date(movie.getReleaseDate().getTime()))
+			.set(MOVIE.RELEASE_YEAR,releaseYear)
+			.set(MOVIE.RELEASE_DECADE,releaseDecade)
 			.set(MOVIE.REVIEW, movie.getReview())
 			.set(MOVIE.WRITER, movie.getWriter())
 			.set(MOVIE.DIRECTOR_ID, dsl.select(DIRECTOR.ID).from(DIRECTOR).where(DIRECTOR.NAME.equal(movie.getDirector().getName())))
@@ -128,7 +134,7 @@ public class BollyServiceImpl {
 			} );
 		}
 		
-		if(movie.getTypeIds()!=null) movie.getTypeIds().forEach(id -> dsl.insertInto(MOVIE_TYPE).set(MOVIE_TYPE.MOVIE_ID,movieId).set(MOVIE_TYPE.TYPE_ID,id).execute());
+		if(movie.getTypeIds()!=null) movie.getTypeIds().forEach(id -> dsl.insertInto(MOVIE_TYPE).set(MOVIE_TYPE.MOVIE_ID,movieId).set(MOVIE_TYPE.TYPE_ID,id.byteValue()).execute());
 		
 		return movieId;
 	}

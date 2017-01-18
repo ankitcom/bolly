@@ -25,16 +25,16 @@ import lombok.ToString;
 @ToString
 @JsonInclude(Include.NON_NULL)
 public class Movie {
-	private int id;
+	private Integer id;
 	private String name;
 	private String onlineStreamLink;
-	private byte rating;
+	private Integer rating;
 	private String review;
 	private String writer;
 	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date releaseDate;
-	private Short releaseYear;
-	private Set<Byte> typeIds;
+	private Integer releaseYear;
+	private Set<Integer> typeIds;
 	private Person director;
 	private Set<Person> actors;
 	private String imageUrl;

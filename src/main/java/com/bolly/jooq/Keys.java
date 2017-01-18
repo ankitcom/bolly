@@ -43,8 +43,8 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
-    public static final Identity<ActorRecord, Short> IDENTITY_ACTOR = Identities0.IDENTITY_ACTOR;
-    public static final Identity<DirectorRecord, Short> IDENTITY_DIRECTOR = Identities0.IDENTITY_DIRECTOR;
+    public static final Identity<ActorRecord, Integer> IDENTITY_ACTOR = Identities0.IDENTITY_ACTOR;
+    public static final Identity<DirectorRecord, Integer> IDENTITY_DIRECTOR = Identities0.IDENTITY_DIRECTOR;
     public static final Identity<MovieRecord, Integer> IDENTITY_MOVIE = Identities0.IDENTITY_MOVIE;
     public static final Identity<TypeRecord, Byte> IDENTITY_TYPE = Identities0.IDENTITY_TYPE;
 
@@ -77,8 +77,8 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 extends AbstractKeys {
-        public static Identity<ActorRecord, Short> IDENTITY_ACTOR = createIdentity(Actor.ACTOR, Actor.ACTOR.ID);
-        public static Identity<DirectorRecord, Short> IDENTITY_DIRECTOR = createIdentity(Director.DIRECTOR, Director.DIRECTOR.ID);
+        public static Identity<ActorRecord, Integer> IDENTITY_ACTOR = createIdentity(Actor.ACTOR, Actor.ACTOR.ID);
+        public static Identity<DirectorRecord, Integer> IDENTITY_DIRECTOR = createIdentity(Director.DIRECTOR, Director.DIRECTOR.ID);
         public static Identity<MovieRecord, Integer> IDENTITY_MOVIE = createIdentity(Movie.MOVIE, Movie.MOVIE.ID);
         public static Identity<TypeRecord, Byte> IDENTITY_TYPE = createIdentity(Type.TYPE, Type.TYPE.ID);
     }
