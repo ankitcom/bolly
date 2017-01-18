@@ -41,6 +41,7 @@ public class DataLoadController extends CommonController{
 		logger.debug("At addMoviesFromWiki");
 		if("2016".equals(year)) dataLoadServiceImpl.addMoviesFromWiki("https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2016", year);
 		else if("2015".equals(year)) dataLoadServiceImpl.addMoviesFromWiki("https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2015", year);
+		else if("2014".equals(year)) dataLoadServiceImpl.addMoviesFromWiki("https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2014", year);
 		
 		return ApiResponse.builder().ok(true).message("Completed. Check logs").build();
 	}

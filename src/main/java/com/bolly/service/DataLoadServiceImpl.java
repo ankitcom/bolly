@@ -124,7 +124,6 @@ public class DataLoadServiceImpl {
 			tables.forEach(table->{
 				Date releaseDate=null;
 				for(Element row:table.getElementsByTag("tr")){
-//				table.getElementsByTag("tr").forEach(row->{
 					try{
 						MovieBuilder movieBuilder = Movie.builder();
 						Elements cols=row.getElementsByTag("td");
@@ -143,7 +142,6 @@ public class DataLoadServiceImpl {
 						movieBuilder.name(cols.get(index).text().trim());
 						movieBuilder.director(Person.builder().name(cols.get(index+2).text().trim()).build());
 						movieBuilder.actors(getActorsSet(cols.get(index+3).text()));
-	//					movieBuilder.imageUrl(doc.getElementsByAttributeValueMatching("property", "og:image").get(0).attr("content"));
 						Movie movie=movieBuilder.build();
 //						logger.trace("Movie:{}",movie);
 						bollyServiceImpl.addMovie(movie);
