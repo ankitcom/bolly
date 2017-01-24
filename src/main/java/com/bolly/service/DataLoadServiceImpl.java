@@ -70,7 +70,7 @@ public class DataLoadServiceImpl {
 				movieBuilder.director(Person.builder().name(text.substring(text.indexOf(dirStr)+dirStr.length(), text.indexOf(actStr)).replace(" ", " ").replace(" ", " ").trim()).build());
 				String actorsStr=text.substring(text.indexOf(actStr)+actStr.length(), text.indexOf(wriStr)>-1?text.indexOf(wriStr):text.indexOf(ratStr));
 				movieBuilder.actors(getActorsSet(actorsStr));
-				movieBuilder.rating((int)(Float.parseFloat(text.substring(text.indexOf(ratStr)+ratStr.length(), text.indexOf(str5)).trim())*2));
+				movieBuilder.rating(Float.parseFloat(text.substring(text.indexOf(ratStr)+ratStr.length(), text.indexOf(str5)).trim()));
 				if(text.indexOf(wriStr)>-1){
 					movieBuilder.writer(text.substring(text.indexOf(wriStr)+wriStr.length(), text.indexOf(ratStr)).trim());
 				}
@@ -115,7 +115,7 @@ public class DataLoadServiceImpl {
 		}
 	}
 	
-	public void addMoviesFromWiki(String url, String year){
+	public void addMoviesFromWiki(String url, int year){
 		logger.trace("addMoviesFromWiki");
 		
 		try{
@@ -124,6 +124,7 @@ public class DataLoadServiceImpl {
 			tables.forEach(table->{
 				Date releaseDate=null;
 				for(Element row:table.getElementsByTag("tr")){
+					Movie movie=null;
 					try{
 						MovieBuilder movieBuilder = Movie.builder();
 						Elements cols=row.getElementsByTag("td");
@@ -142,19 +143,21 @@ public class DataLoadServiceImpl {
 						movieBuilder.name(cols.get(index).text().trim());
 						movieBuilder.director(Person.builder().name(cols.get(index+2).text().trim()).build());
 						movieBuilder.actors(getActorsSet(cols.get(index+3).text()));
-						Movie movie=movieBuilder.build();
+						movie=movieBuilder.build();
 //						logger.trace("Movie:{}",movie);
 						bollyServiceImpl.addMovie(movie);
 					}catch(DataAccessException e){
 						if(e.getMessage().indexOf("Duplicate entry")<0){
 							logger.error("Error occured for row:{}",row.text());
 							logger.error(e.getMessage(),e);
+						}else{
+							bollyServiceImpl.updateReleaseDate(movie);
 						}
 					}catch(Exception e){
 						logger.error("Error occured for row:{}",row.text());
 						logger.error(e.getMessage(),e);
 					}
-				}//);
+				}
 			});
 		}catch(Exception e){
 			logger.error(e.getMessage(),e);
@@ -168,5 +171,29 @@ public class DataLoadServiceImpl {
 			actorsSet.add(Person.builder().name(actors[i].replace(" ", " ").replace(" ", " ").trim()).build());
 		}
 		return actorsSet;
+	}
+	
+	public void updateImageUrls(String url, int year){
+		logger.trace("updateImageUrls");
+		
+		try{
+			Document doc=Jsoup.connect(url).get();
+			Elements images=doc.getElementsByClass("img-responsive imgdrp1 newsbox-img");
+			images.forEach(image->{
+				try{
+					MovieBuilder movieBuilder = Movie.builder();
+					movieBuilder.imageUrl(image.attr("data-original"));
+					movieBuilder.name(image.attr("alt"));
+					movieBuilder.releaseYear(year);
+//					logger.trace("Movie:{}",movieBuilder.build());
+					bollyServiceImpl.updateImageUrls(movieBuilder.build());
+				}catch(Exception e){
+					logger.error("Error occured for row:{}",image);
+					logger.error(e.getMessage(),e);
+				}
+			});
+		}catch(Exception e){
+			logger.error(e.getMessage(),e);
+		}
 	}
 }

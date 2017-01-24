@@ -28,7 +28,7 @@ public class Movie {
 	private Integer id;
 	private String name;
 	private String onlineStreamLink;
-	private Integer rating;
+	private Float rating;
 	private String review;
 	private String writer;
 	@JsonFormat(pattern="dd-MM-yyyy")

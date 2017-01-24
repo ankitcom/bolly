@@ -37,12 +37,27 @@ public class DataLoadController extends CommonController{
 	}
 	
 	@RequestMapping(value = "from-wiki", method = RequestMethod.GET, produces = "application/json")
-	public ApiResponse addMoviesFromWiki(@RequestParam(name="year") String year){
+	public ApiResponse addMoviesFromWiki(@RequestParam(name="year") int year){
 		logger.debug("At addMoviesFromWiki");
-		if("2016".equals(year)) dataLoadServiceImpl.addMoviesFromWiki("https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2016", year);
-		else if("2015".equals(year)) dataLoadServiceImpl.addMoviesFromWiki("https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2015", year);
-		else if("2014".equals(year)) dataLoadServiceImpl.addMoviesFromWiki("https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2014", year);
+		String url=null;
+		if(year==2016) url="https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2016";
+		else if(year==2015) url="https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2015";
+		else if(year==2014) url="https://en.wikipedia.org/wiki/List_of_Bollywood_films_of_2014";
 		
+		dataLoadServiceImpl.addMoviesFromWiki(url, year);
+		
+		return ApiResponse.builder().ok(true).message("Completed. Check logs").build();
+	}
+	
+	@RequestMapping(value = "images-from-bmdb", method = RequestMethod.GET, produces = "application/json")
+	public ApiResponse imagesFromBmdb(@RequestParam(name="year") int year){
+		logger.debug("At imagesFromBmdb");
+		String url = null;
+		if(year==2016) url="http://www.bollywoodmdb.com/movies/bollywood-hindi-movies-list-of-2016-1";
+		else if(year==2015) url="http://www.bollywoodmdb.com/movies/bollywood-hindi-movies-list-of-2015-1";
+		else if(year==2014) url="http://www.bollywoodmdb.com/movies/bollywood-hindi-movies-list-of-2014-1";
+		
+		dataLoadServiceImpl.updateImageUrls(url, year);
 		return ApiResponse.builder().ok(true).message("Completed. Check logs").build();
 	}
 }

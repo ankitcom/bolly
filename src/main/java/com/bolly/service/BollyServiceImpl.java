@@ -53,7 +53,7 @@ public class BollyServiceImpl {
 				Movie.builder()
 				.id(record.getValue(MOVIE.ID))
 				.name(record.getValue(MOVIE.NAME))
-				.rating(record.getValue(MOVIE.RATING).intValue())
+				.rating(record.getValue(MOVIE.RATING).floatValue()/2)
 				.releaseDate(record.getValue(MOVIE.RELEASE_DATE))
 				.releaseYear(record.getValue(MOVIE.RELEASE_YEAR))
 				.imageUrl(record.getValue(MOVIE.IMAGE_URL))
@@ -75,7 +75,7 @@ public class BollyServiceImpl {
 		if(record==null) throw new AppException(101, MOVIE_NOT_FOUND);
 		
 		MovieBuilder mb = Movie.builder().id(record.getValue(MOVIE.ID)).name(record.getValue(MOVIE.NAME)).onlineStreamLink(record.getValue(MOVIE.ONLINE_STREAM_LINK))
-		.rating(record.getValue(MOVIE.RATING).intValue()).review(record.getValue(MOVIE.REVIEW)).releaseDate(record.getValue(MOVIE.RELEASE_DATE))
+		.rating(record.getValue(MOVIE.RATING).floatValue()/2).review(record.getValue(MOVIE.REVIEW)).releaseDate(record.getValue(MOVIE.RELEASE_DATE))
 		.releaseYear(record.getValue(MOVIE.RELEASE_YEAR)).writer(record.getValue(MOVIE.WRITER));
 		
 		mb.director(Person.builder().id(record.getValue(DIRECTOR.ID)).name(record.getValue(DIRECTOR.NAME)).build());
@@ -116,7 +116,7 @@ public class BollyServiceImpl {
 		int movieId = dsl.insertInto(MOVIE)
 			.set(MOVIE.NAME,movie.getName())
 			.set(MOVIE.ONLINE_STREAM_LINK,movie.getOnlineStreamLink())
-			.set(MOVIE.RATING,movie.getRating()!=null?movie.getRating().byteValue():null)
+			.set(MOVIE.RATING,movie.getRating()!=null?(byte)(movie.getRating()*2):null)
 			.set(MOVIE.RELEASE_DATE,new Date(movie.getReleaseDate().getTime()))
 			.set(MOVIE.RELEASE_YEAR,releaseYear)
 			.set(MOVIE.RELEASE_DECADE,releaseDecade)
@@ -137,5 +137,19 @@ public class BollyServiceImpl {
 		if(movie.getTypeIds()!=null) movie.getTypeIds().forEach(id -> dsl.insertInto(MOVIE_TYPE).set(MOVIE_TYPE.MOVIE_ID,movieId).set(MOVIE_TYPE.TYPE_ID,id.byteValue()).execute());
 		
 		return movieId;
+	}
+	
+	public void updateReleaseDate(Movie movie){
+		Calendar cal=Calendar.getInstance();
+		cal.setTimeInMillis(movie.getReleaseDate().getTime());
+		int releaseYear=cal.get(Calendar.YEAR);
+		cal.setTimeInMillis(movie.getReleaseDate().getTime());
+		dsl.update(MOVIE).set(MOVIE.RELEASE_DATE,new Date(movie.getReleaseDate().getTime()))
+			.where(MOVIE.NAME.equal(movie.getName()).and(MOVIE.RELEASE_YEAR.equal(releaseYear))).execute();
+	}
+	
+	public void updateImageUrls(Movie movie){
+		dsl.update(MOVIE).set(MOVIE.IMAGE_URL,movie.getImageUrl())
+			.where(MOVIE.NAME.equal(movie.getName()).and(MOVIE.RELEASE_YEAR.equal(movie.getReleaseYear()))).execute();
 	}
 }
