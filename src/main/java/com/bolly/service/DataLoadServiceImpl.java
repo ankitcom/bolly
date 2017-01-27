@@ -1,5 +1,7 @@
 package com.bolly.service;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
@@ -181,12 +183,19 @@ public class DataLoadServiceImpl {
 			Elements images=doc.getElementsByClass("img-responsive imgdrp1 newsbox-img");
 			images.forEach(image->{
 				try{
-					MovieBuilder movieBuilder = Movie.builder();
-					movieBuilder.imageUrl(image.attr("data-original"));
-					movieBuilder.name(image.attr("alt"));
-					movieBuilder.releaseYear(year);
-//					logger.trace("Movie:{}",movieBuilder.build());
-					bollyServiceImpl.updateImageUrls(movieBuilder.build());
+//					MovieBuilder movieBuilder = Movie.builder();
+//					movieBuilder.imageUrl(image.attr("data-original"));
+//					movieBuilder.name(image.attr("alt"));
+//					movieBuilder.releaseYear(year);
+//					bollyServiceImpl.updateImageUrls(movieBuilder.build());
+					String movieName = image.attr("alt");
+					movieName=movieName.replace(' ', '_');
+					String imageUrl=image.attr("data-original");
+					try(InputStream in = new URL(imageUrl).openStream()){
+//						String[] imArr=imageUrl.split("/");String imageName=imArr[imArr.length-1];
+						String imageName=movieName+"_"+year+".jpg";
+					    Files.copy(in, Paths.get("/Users/ankit.bhatnagar/Work/bolly/images/"+imageName));
+					}
 				}catch(Exception e){
 					logger.error("Error occured for row:{}",image);
 					logger.error(e.getMessage(),e);

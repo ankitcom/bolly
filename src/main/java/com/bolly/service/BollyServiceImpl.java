@@ -48,7 +48,7 @@ public class BollyServiceImpl {
 	public List<Movie> getRecentMovies(int recentCount){
 
 		List<Movie> movies=new ArrayList<>(recentCount);
-		dsl.select().from(MOVIE).orderBy(MOVIE.RELEASE_DATE.desc()).limit(recentCount).fetch().forEach(record -> {
+		dsl.select().from(MOVIE).where(MOVIE.RATING.isNotNull()).orderBy(MOVIE.RELEASE_DATE.desc()).limit(recentCount).fetch().forEach(record -> {
 			movies.add(
 				Movie.builder()
 				.id(record.getValue(MOVIE.ID))
