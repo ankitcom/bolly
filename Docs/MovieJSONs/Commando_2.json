@@ -1,0 +1,26 @@
+{
+  "name":"Commando 2",
+  "director":{
+    "name":"Deven Bhojani"
+  },
+  "rating":0.5,
+  "releaseDate":"03-03-2017",
+  "writer":"Ritesh Shah",
+  "actors":[
+    {
+      "name":"Vidyut Jamwal"
+    },
+    {
+      "name":"Adah Sharma"
+    },
+    {
+      "name":"Esha Gupta"
+    },
+    {
+      "name":"Freddy Daruwala"
+    }
+  ],
+  "review":"This is one of the worst made movies I've seen in a long time. With an all-time low Acting performances and poor direction, this movie is ridiculously bad.\n\nStoryline Rating: 1\n\nActing Rating: 1\nVidyut Jamwal: 1\nAdah Sharma: 1\nEsha Gupta: 1\nFreddy Daruwala: 1\n\nDirection Rating: 1\n\nMusic Rating: 1\n\nCinematography: 2\n\nEditing: 1",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/03/commando-2-2016.jpg",
+  "typeIds":[6]
+}

@@ -1,0 +1,23 @@
+{
+  "name":"Phillauri",
+  "director":{
+    "name":"Anshai Lal"
+  },
+  "rating":2,
+  "releaseDate":"24-03-2017",
+  "writer":"Anvita Dutt",
+  "actors":[
+    {
+      "name":"Anushka Sharma"
+    },
+    {
+      "name":"Diljit Dosanjh"
+    },
+    {
+      "name":"Suraj Sharma"
+    }
+  ],
+  "review":"Funny in parts, sad in parts, entertaining in parts, boring as a whole. Anushka Sharma keeps a great body language to carry this character successfully. Other actors, Director and script are just below average. USP of this film lies in its Editing. Scenes are connected very beautifully throughout the movie.\n\nStoryline Rating: 2\n\nActing Rating: 2\nAnushka Sharma: 3\nDiljit Dosanjh: 2\nSuraj Sharma: 2\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 3\n\nEditing: 4",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/03/5f45cb16-f415-11e6-bee8-7b74d3637aa8.jpeg",
+  "typeIds":[2,7]
+}

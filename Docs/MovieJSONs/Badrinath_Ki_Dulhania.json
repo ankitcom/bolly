@@ -1,0 +1,32 @@
+{
+  "name":"Badrinath Ki Dulhania",
+  "director":{
+    "name":"Shashank Khaitan"
+  },
+  "rating":2.5,
+  "releaseDate":"10-03-2017",
+  "writer":"Shashank Khaitan",
+  "actors":[
+    {
+      "name":"Alia Bhatt"
+    },
+    {
+      "name":"Varun Dhawan"
+    },
+    {
+      "name":"Ritu Raj Singh"
+    },
+    {
+      "name":"Shweta Prasad"
+    },
+    {
+      "name":"Sahil Vaid"
+    },
+    {
+      "name":"Gauhar Khan"
+    }
+  ],
+  "review":"Very nice in parts with good funny dialogues. But mostly weak in quality and script writing. Sahil Vaid and Alia Bhatt delivered a superb performance where Varun Dhawan was decent. Shashank Khaitan should experiment and attempt more, without sticking himself to Dulhania series. Songs were average and just mildly gelled with the movie flow.\n\nStoryline Rating: 2\n\nActing Rating: 3\nSahil Vaid: 3\nAlia Bhatt: 3\nVarun Dhawan: 2\nRitu Raj Singh: 2\nShweta Prasad: 3\nGauhar Khan: 3\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 3\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/03/badrinath-l.jpg",
+  "typeIds":[2,3,4,7]
+}

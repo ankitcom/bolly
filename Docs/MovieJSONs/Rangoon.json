@@ -1,0 +1,26 @@
+{
+  "name":"Rangoon",
+  "director":{
+    "name":"Vishal Bhardwaj"
+  },
+  "rating":1.5,
+  "releaseDate":"24-02-2017",
+  "writer":"Matthew Robbins",
+  "actors":[
+    {
+      "name":"Kangana Ranaut"
+    },
+    {
+      "name":"Shahid Kapoor"
+    },
+    {
+      "name":"Saif Ali Khan"
+    },
+    {
+      "name":"Richard McCabe"
+    }
+  ],
+  "review":"The director has left no chance to include as much illogical stuff as possible. Although the characters and the actors are good and have performed well, the script and the filmmaking is a complete thumb down.\n\nStoryline Rating: 2\n\nActing Rating: 3\nKangana Ranaut: 3\nShahid Kapoor: 3\nSaif Ali Khan: 2\nRichard McCabe: 3\n\nDirection Rating: 2\n\nMusic Rating: 1\n\nCinematography: 3\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/02/rangoon-celeb-review-7591.jpg",
+  "typeIds":[5,6,10]
+}

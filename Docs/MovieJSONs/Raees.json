@@ -1,0 +1,29 @@
+{
+  "name":"Raees",
+  "director":{
+    "name":"Rahul Dholakia"
+  },
+  "rating":2,
+  "releaseDate":"25-01-2017",
+  "writer":"Rahul Dholakia, Harit Mehta, Neeraj Shukla, Ashish Vashi",
+  "actors":[
+    {
+      "name":"Nawazuddin Siddiqui"
+    },
+    {
+      "name":"Mahira Khan"
+    },
+    {
+      "name":"Shah Rukh Khan"
+    },
+    {
+      "name":"Mohammed Zeeshan Ayyub"
+    },
+    {
+      "name":"Atul Kulkarni"
+    }
+  ],
+  "review":"The only good takeaway from the movie is Nawazuddin's perfection. Else every aspect of Raees filmmaking lacks conviction. I would rather see Once upon a time in Mumbai again, instead of this scriptless usual smuggling flick.\n\nRating: 2 / 5\n\nStoryline Rating: 2\n\nActing Rating: 3\nNawazuddin Siddiqui: 4\nMahira Khan: 3\nShah Rukh Khan: 3\nMohammed Zeeshan Ayyub: 3\nAtul Kulkarni: 3\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/01/mahira-khan-upset-with-srk-regarding-release-of-raees-5fe092e03d86339e0a0ec18724901b84.jpg",
+  "typeIds":[1,2,6,8]
+}

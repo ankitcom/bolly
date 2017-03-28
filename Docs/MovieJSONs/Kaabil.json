@@ -1,0 +1,32 @@
+{
+  "name":"Kaabil",
+  "director":{
+    "name":"Sanjay Gupta"
+  },
+  "rating":2.5,
+  "releaseDate":"25-01-2017",
+  "writer":"Sanjay Masoom, Vijay Kumar Mishra",
+  "actors":[
+    {
+      "name":"Hrithik Roshan"
+    },
+    {
+      "name":"Yami Gautam"
+    },
+    {
+      "name":"Ronit Roy"
+    },
+    {
+      "name":"Rohit Roy"
+    },
+    {
+      "name":"Girish Kulkarni"
+    },
+    {
+      "name":"Narendra Jha"
+    }
+  ],
+  "review":"With more work on revenge script in the later part of the movie, this could have been a wonderfully made thriller. A great build up in first half with some decent direction and amazing acting by Hrithik Roshan, but mostly a disappointment towards the end. Overall, a nice concept and thought, which could've been so much better.\n\nStoryline Rating: 3\n\nActing Rating: 4\nHrithik Roshan: 4\nYami Gautam: 3\nRonit Roy: 2\nRohit Roy: 2\nGirish Kulkarni: 2\nNarendra Jha: 3\nDirection Rating: 3\n\nMusic Rating: 3\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/01/kaabil-759.jpg",
+  "typeIds":[1,2,4,6]
+}

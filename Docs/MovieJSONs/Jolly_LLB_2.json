@@ -1,0 +1,29 @@
+{
+  "name":"Jolly LLB 2",
+  "director":{
+    "name":"Subhash Kapoor"
+  },
+  "rating":2,
+  "releaseDate":"10-02-2017",
+  "writer":"Subhash Kapoor",
+  "actors":[
+    {
+      "name":"Akshay Kumar"
+    },
+    {
+      "name":"Huma Qureshi"
+    },
+    {
+      "name":"Annu Kapoor"
+    },
+    {
+      "name":"Saurabh Shukla"
+    },
+    {
+      "name":"Sayani Gupta"
+    }
+  ],
+  "review":"Very unrealistic, but that also shows how unreal it is to find justice for poor against the rich corrupts. There are very fewer dialogues that'll make you laugh. A movie good at heart, but less on entertainment.\n\nStoryline Rating: 2\n\nActing Rating: 3\nAkshay Kumar: 3\nHuma Qureshi: 3\nAnnu Kapoor: 3\nSaurabh Shukla: 3\nSayani Gupta: 3\n\nDirection Rating: 3\n\nMusic Rating: 2\n\nCinematography: 2\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/02/jolly-2.png",
+  "typeIds":[3,7]
+}

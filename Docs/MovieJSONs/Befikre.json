@@ -1,0 +1,20 @@
+{
+  "name":"Befikre",
+  "director":{
+    "name":"Aditya Chopra"
+  },
+  "rating":2,
+  "releaseDate":"09-12-2016",
+  "writer":"Aditya Chopra",
+  "actors":[
+    {
+      "name":"Ranveer Singh"
+    },
+    {
+      "name":"Vaani Kapoor"
+    }
+  ],
+  "review":"Starts poorly, poorer direction, a decent pickup in the mid followed by a crappy climax. Ranveer Singh and Vaani Kapoor have acted well but a consistent amalgamation of stupidity irritates a lot.\n\nStoryline Rating: 2\n\nActing Rating: 3\nRanveer Singh: 3\nVaani Kapoor: 3\n\nDirection Rating: 2\n\nMusic Rating: 3\n\nCinematography: 3\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/02/befikre-ranveer-vaani759.jpg",
+  "typeIds":[2,4]
+}

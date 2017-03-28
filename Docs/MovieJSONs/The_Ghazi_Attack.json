@@ -1,0 +1,29 @@
+{
+  "name":"The Ghazi Attack",
+  "director":{
+    "name":"Sankalp Reddy"
+  },
+  "rating":2,
+  "releaseDate":"17-02-2017",
+  "writer":"Sankalp Reddy",
+  "actors":[
+    {
+      "name":"Kay Kay Menon"
+    },
+    {
+      "name":"Rana Daggubati"
+    },
+    {
+      "name":"Atul Kulkarni"
+    },
+    {
+      "name":"Tapsee Pannu"
+    },
+    {
+      "name":"Rahul Singh"
+    }
+  ],
+  "review":"Very impractical and weakly written script. Acting wise good, with Kay Kay Menon leading the trot. A good attempt on build up towards the start but vaguely tried to play with the soldier emotions in the end.\n\nStoryline Rating: 2\n\nActing Rating: 3\nKay Kay Menon: 3\nRana Daggubati: 3\nAtul Kulkarni: 3\nTapsee Pannu: 3\nRahul Singh: 3\n\nDirection Rating: 2\n\nMusic Rating: 1\n\nCinematography: 2\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/02/ghazi-1.jpg",
+  "typeIds":[1,5]
+}

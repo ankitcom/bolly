@@ -1,0 +1,23 @@
+{
+  "name":"Ok Jaanu",
+  "director":{
+    "name":"Shaad Ali"
+  },
+  "rating":2,
+  "releaseDate":"13-01-2017",
+  "writer":"Mani Ratnam",
+  "actors":[
+    {
+      "name":"Aditya Roy Kapoor"
+    },
+    {
+      "name":"Shraddha Kapoor"
+    },
+    {
+      "name":"Naseeruddin Shah"
+    }
+  ],
+  "review":"No decent effort made towards the script. Just a substandard romantic script that's not even worth a one-time watch. Aditya Roy Kapoor acted quite well and was well into his character throughout.\n\nStoryline Rating: 2\n\nActing Rating: 2\nAditya Roy Kapoor: 3\nShraddha Kapoor: 2\nNaseeruddin Shah: 2\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 2\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/01/1484235674_ok-jaanu-review.jpg",
+  "typeIds":[2,4]
+}
