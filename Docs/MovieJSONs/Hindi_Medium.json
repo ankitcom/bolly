@@ -1,0 +1,26 @@
+{
+  "name":"Hindi Medium",
+  "director":{
+    "name":"Saket Chaudhary"
+  },
+  "rating":3,
+  "releaseDate":"19-05-2017",
+  "writer":"Saket Chaudhary",
+  "actors":[
+    {
+      "name":"Deepak Dobriyal"
+    },
+    {
+      "name":"Irrfan Khan"
+    },
+    {
+      "name":"Saba Qamar"
+    },
+    {
+      "name":"Amrita Singh"
+    }
+  ],
+  "review":"A brilliantly written story that everyone understands, but no one realises. Shown in a perfect way that throws a correct impact. Decent acting by all the actors especially Deepak Dobriyal whose entry elevates the whole film.\n\nStoryline Rating: 4\n\nActing Rating: 3\nDeepak Dobriyal: 4\nIrrfan Khan: 3\nSaba Qamar: 3\nAmrita Singh: 3\n\nDirection Rating: 3\n\nMusic Rating: 2\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/05/hindi-medium-a-trailer-you-just-cannot-miss-features.jpg",
+  "typeIds":[2,7]
+}

@@ -66,19 +66,19 @@ sudo service mysqld start
 mysql -u root -pSturridge@15
 SET PASSWORD = PASSWORD('Sturridge@15');
 CREATE USER 'bolly'@'localhost' IDENTIFIED BY 'Sturridge@15';
-GRANT ALL ON *.* TO 'bolly'@'localhost';
+create database bolly;
+GRANT ALL ON bolly.* TO 'bolly'@'localhost';
 exit
 sudo service mysqld stop
 sudo service mysqld start (mysql.server restart)
 mysql -u bolly -pSturridge@15
-create database bolly;
 exit
 mysql -u bolly -pSturridge@15 bolly
 
 FOR OUTSIDE ACCESS;
 mysql -u root -pSturridge@15
 CREATE USER 'bolly'@'%' IDENTIFIED BY 'Sturridge@15';
-GRANT ALL PRIVILEGES ON *.* TO 'bolly'@'%';
+GRANT ALL PRIVILEGES ON bolly.* TO 'bolly'@'%';
 
 ----------------
 java -classpath /Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/jooq-3.8.4.jar:/Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/jooq-meta-3.8.4.jar:/Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/jooq-codegen-3.8.4.jar:/Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/mysql-connector-java-6.0.4.jar:/Users/ankit.bhatnagar/git/bolly/bolly/src/main/resources/ org.jooq.util.GenerationTool /Users/ankit.bhatnagar/git/bolly/bolly/Docs/bolly.xml
@@ -86,29 +86,3 @@ java -classpath /Users/ankit.bhatnagar/Work/bolly/jOOQ-lib/jooq-3.8.4.jar:/Users
 /etc/httpd/conf.d/httpd-ssl.conf
 JkMount /bolly/* node2
 ----------------
-
-
-{
-  "name":"No Smoking",
-  "director":{
-    "name":"Anurag Kashyap"
-  },
-  "rating":5,
-  "releaseDate":"26-10-2007",
-  "writer":"Anurag Kashyap",
-  "actors":[
-    {
-      "name":"John Abraham"
-    },
-    {
-      "name":"Ayesha Takia"
-    },
-    {
-      "name":"Paresh Rawal"
-    },
-    {
-      "name":"Ranvir Shorey"
-    }
-  ],
-  "typeIds":[1]
-}

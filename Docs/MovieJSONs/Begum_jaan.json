@@ -1,0 +1,44 @@
+{
+  "name":"Begum Jaan",
+  "director":{
+    "name":"Srijit Mukherji"
+  },
+  "rating":3,
+  "releaseDate":"14-04-2017",
+  "writer":"Srijit Mukherji",
+  "actors":[ 
+    {
+      "name":"Vidya Balan"
+    },
+    {
+      "name":"Gauhar Khan"
+    },
+    {
+      "name":"Chunky Pandey"
+    },
+    {
+      "name":"Sumit Nijhawan"
+    },
+    {
+      "name":"Ila Arun"
+    },
+    {
+      "name":"Naseeruddin Shah"
+    },
+    {
+      "name":"Pallavi Sharda"
+    },
+    {
+      "name":"Ashish Vidyarthi"
+    },
+    {
+      "name":"Vivek Mushran"
+    },
+    {
+      "name":"Rajit Kapoor"
+    }
+  ],
+  "review":"A strongly written and well-thought script that shows partition vows with a very different and unique angle. Barring the irrelevant noisiness of some characters, it's a well directed and acted movie. Vidya Balan along with other characters like Gauhar Khan, Chunky Pandey, Sumit Nijhawan and Ila Arun were brilliant.\n\nStoryline Rating: 4\n\nActing Rating: 3\nVidya Balan: 3\nGauhar Khan: 3\nChunky Pandey: 4\nSumit Nijhawan: 4\nIla Arun: 3\nNaseeruddin Shah: 3\nPallavi Sharda: 2\nAshish Vidyarthi: 3\nVivek Mushran: 2\nRajit Kapoor: 3\n\nDirection Rating: 3\n\nMusic Rating: 3\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/06/begum-jaan_640x480_41492154735.jpg",
+  "typeIds":[6,8,10]
+}

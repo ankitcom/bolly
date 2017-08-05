@@ -1,0 +1,20 @@
+{
+  "name":"Jab Harry Met Sejal",
+  "director":{
+    "name":"Imtiaz Ali"
+  },
+  "rating":2.5,
+  "releaseDate":"04-08-2017",
+  "writer":"Imtiaz Ali",
+  "actors":[
+    {
+      "name":"Shah Rukh Khan"
+    },
+    {
+      "name":"Anushka Sharma"
+    }
+  ],
+  "review":"A senseless story that flourishes on Imtiaz Ali's direction for a while. The moment when you get connected and feel to avoid all flaws, it breaks the connection towards the end. It's the right time for Imtiaz to work more on his writing now. Besides, SRK and Anushka were wonderful in their respective characters.\n\nStoryline Rating: 1\n\nActing Rating: 3\nShah Rukh Khan: 3\nAnushka Sharma: 3\n\nDirection Rating: 3\n\nMusic Rating: 3\n\nCinematography: 4\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/08/heres-new-poster-jab-harry-met-sejal-0001.jpg",
+  "typeIds":[2,4]
+}

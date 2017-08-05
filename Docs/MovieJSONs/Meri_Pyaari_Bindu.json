@@ -1,0 +1,20 @@
+{
+  "name":"Meri Pyaari Bindu",
+  "director":{
+    "name":"Akshay Roy"
+  },
+  "rating":2,
+  "releaseDate":"12-05-2017",
+  "writer":"Suprotim Sengupta",
+  "actors":[
+    {
+      "name":"Parineeti Chopra"
+    },
+    {
+      "name":"Ayushmann Khurrana"
+    }
+  ],
+  "review":"A confused script that battles with sense to improve. It's only the actors that pick this movie with their amazing charm and screen presence. The direction and writing are the let downs here.\n\nDirector: Akshay Roy\nActors: Parineeti Chopra, Ayushmann Khurrana\nWriter: Suprotim Sengupta\n\nRating: 2 / 5\n\nStoryline Rating: 2\n\nActing Rating: 3\nParineeti Chopra: 3\nAyushmann Khurrana: 3\n\nDirection Rating: 2\n\nMusic Rating: 3\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/05/meri-pyari-bindu444.jpg",
+  "typeIds":[2,3,4,7]
+}

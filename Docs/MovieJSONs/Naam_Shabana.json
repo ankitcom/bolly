@@ -1,0 +1,29 @@
+{
+  "name":"Naam Shabana",
+  "director":{
+    "name":"Shivam Nair"
+  },
+  "rating":2.5,
+  "releaseDate":"31-03-2017",
+  "writer":"Neeraj Pandey",
+  "actors":[
+    {
+      "name":"Tapsee Pannu"
+    },
+    {
+      "name":"Manoj Bajpayee"
+    },
+    {
+      "name":"Prithviraj Sukumaran"
+    },
+    {
+      "name":"Akshay Kumar"
+    },
+    {
+      "name":"Anupam Kher"
+    }
+  ],
+  "review":"A good try for 'Baby movie' lovers but could have been way better. Not even close to the theme and intensity of the previous part. Although it tried to reap the benefits but even if taken as a standalone movie, the script was very dull and less energetic. Taapsee Pannu and Manoj Bajpayee were good along with all cameo roles.\n\nStoryline Rating: 2\n\nActing Rating: 3\nTapsee Pannu: 3\nManoj Bajpayee: 3\nPrithviraj Sukumaran: 3\nAkshay Kumar: 3\nAnupam Kher: 3\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/04/maxresdefault.jpg",
+  "typeIds":[1,5,6]
+}

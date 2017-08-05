@@ -1,0 +1,35 @@
+{
+  "name":"Baahubali 2: The Conclusion",
+  "director":{
+    "name":"S.S. Rajamouli"
+  },
+  "rating":2.5,
+  "releaseDate":"28-04-2017",
+  "writer":"S.S. Rajamouli",
+  "actors":[
+    {
+      "name":"Prabhas"
+    },
+    {
+      "name":"Rana Daggubati"
+    },
+    {
+      "name":"Anushka Shetty"
+    },
+    {
+      "name":"Tamannaah Bhatia"
+    },
+    {
+      "name":"Ramya Krishnan"
+    },
+    {
+      "name":"Nassar"
+    },
+    {
+      "name":"Sathyaraj"
+    }
+  ],
+  "review":"A certain classy visual delight and a must watch for Baahubali lovers. Not strong in content, substandard story, few good characters but not able to withstand the expectations and the excitements that the wonderful part 1 created. It has good fight scenes and a decent love story again but the movie hasn't left the required impact.\n\nStoryline Rating: 3\n\nActing Rating: 3\nPrabhas: 3\nRana Daggubati: 4\nAnushka Shetty: 3\nTamannaah Bhatia: 3\nRamya Krishnan: 3\nNassar: 3\nSathyaraj: 4\n\nDirection Rating: 3\n\nMusic Rating: 2\n\nCinematography: 5\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/04/baahubali_640x480_51493361351.jpg",
+  "typeIds":[2,4,6,10]
+}

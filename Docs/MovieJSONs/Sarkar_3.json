@@ -1,0 +1,29 @@
+{
+  "name":"Sarkar 3",
+  "director":{
+    "name":"Ram Gopal Varma"
+  },
+  "rating":2.5,
+  "releaseDate":"12-05-2017",
+  "writer":"P. Jaya Kumar",
+  "actors":[
+    {
+      "name":"Amitabh Bachchan"
+    },
+    {
+      "name":"Yami Gautam"
+    },
+    {
+      "name":"Jackie Shroff"
+    },
+    {
+      "name":"Manoj Bajpayee"
+    },
+    {
+      "name":"Ronit Roy"
+    }
+  ],
+  "review":"A typical Ram Gopal Varma movie which had something that was missing in his recent ventures. It gives a hint that RGV might have regained his touch to at least make a decent movie. Sarkar 3 is decently written and directed but has nothing unique or impacting.\n\nStoryline Rating: 3\n\nActing Rating: 3\nAmitabh Bachchan: 3\nYami Gautam: 2\nJackie Shroff: 2\nManoj Bajpayee: 3\nRonit Roy: 3\n\nDirection Rating: 3\n\nMusic Rating: 2\n\nCinematography: 2\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/05/image2-sarkar3-1494605495.jpg",
+  "typeIds":[1,6,8]
+}
