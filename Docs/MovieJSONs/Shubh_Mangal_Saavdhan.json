@@ -1,0 +1,20 @@
+{
+  "name":"Shubh Mangal Saavdhan",
+  "director":{
+    "name":"R.S. Prasanna"
+  },
+  "rating":3,
+  "releaseDate":"01-09-2017",
+  "writer":"R.S. Prasanna",
+  "actors":[
+    {
+      "name":"Bhumi Pednekar"
+    },
+    {
+      "name":"Ayushmann Khurrana"
+    }
+  ],
+  "review":"A hilarious comedy movie that also shows how humour can be decently created from the unspoken topics. Bhumi Pednekar, Ayushmann Khurrana and all other characters shine throughout.\n\nStoryline Rating: 3\n\nActing Rating: 3\nBhumi Pednekar: 3\nAyushmann Khurrana: 3\n\nDirection Rating: 3\n\nMusic Rating: 2\n\nCinematography: 2\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/09/ayushmann-khuranna-saavdhan-bhumi-pednekar-reunite-mangal_84baecb4-769c-11e7-83e1-68866f5cbeee.jpg",
+  "typeIds":[2,3,4,7]
+}

@@ -1,0 +1,26 @@
+{
+  "name":"Haraamkhor",
+  "director":{
+    "name":"Shlok Sharma"
+  },
+  "rating":2.5,
+  "releaseDate":"13-01-2017",
+  "writer":"Shlok Sharma",
+  "actors":[
+    {
+      "name":"Nawazuddin Siddiqui"
+    },
+    {
+      "name":"Shweta Tripathi"
+    },
+    {
+      "name":"Mohd Samad"
+    },
+    {
+      "name":"Irfan Khan"
+    }
+  ],
+  "review":"Bringing thought of every confused child to the reel reality. It's certainly high on performances but low on direction.\n\nStoryline Rating: 2\n\nActing Rating: 3\nNawazuddin Siddiqui: 3\nShweta Tripathi: 3\nMohd Samad: 4\nIrfan Khan: 3\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 2\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/01/214ce19e-d978-11e6-a260-7aa04c68bc63.jpg",
+  "typeIds":[2]
+}

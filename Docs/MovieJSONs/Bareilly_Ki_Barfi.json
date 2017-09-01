@@ -1,0 +1,29 @@
+{
+  "name":"Bareilly Ki Barfi",
+  "director":{
+    "name":"Ashwiny Iyer Tiwari"
+  },
+  "rating":3.5,
+  "releaseDate":"18-08-2017",
+  "writer":"Shreyas Jain, Nitesh Tiwari",
+  "actors":[
+    {
+      "name":"Rajkummar Rao"
+    },
+    {
+      "name":"Kriti Sanon"
+    },
+    {
+      "name":"Ayushmann Khurrana"
+    },
+    {
+      "name":"Pankaj Tripathy"
+    },
+    {
+      "name":"Seema Pahwa"
+    }
+  ],
+  "review":"A fantastically written script that flourishes under the direction of Ashwiny Iyer Tiwari. After Nil Battey Sannata last year, she once again showcases her direction class. All the actors were superb in their characters including their highly entertaining dialogue delivery. A special mention to Rajkummar Rao who got an amazing chance and wonderfully delivered his method acting.\n\nStoryline Rating: 4\n\nActing Rating: 3\nRajkummar Rao: 4\nKriti Sanon: 3\nAyushmann Khurrana: 3\nPankaj Tripathy: 3\nSeema Pahwa: 3\n\nDirection Rating: 4\n\nMusic Rating: 2\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/08/bareilly-ki-barfi-review-2.jpg",
+  "typeIds":[3,4,7]
+}
