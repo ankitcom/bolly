@@ -1,0 +1,29 @@
+{
+  "name":"Noor",
+  "director":{
+    "name":"Sunhil Sippy"
+  },
+  "rating":2,
+  "releaseDate":"21-04-2017",
+  "writer":"Sunhil Sippy",
+  "actors":[
+    {
+      "name":"Sonakshi Sinha"
+    },
+    {
+      "name":"Purab Kohli"
+    },
+    {
+      "name":"Suchitra Pillai"
+    },
+    {
+      "name":"Kanan Gill"
+    },
+    {
+      "name":"Manish Chaudhary"
+    }
+  ],
+  "review":"Just like a usual 2 hour daily tv soap that flows without irritating much and ends.\n\nStoryline Rating: 2\n\nActing Rating: 2\nSonakshi Sinha: 2\nPurab Kohli: 2\nSuchitra Pillai: 2\nKanan Gill: 3\nManish Chaudhary: 3\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 2\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/10/noor-poster-story_647_042117014036.jpg",
+  "typeIds":[2,4]
+}

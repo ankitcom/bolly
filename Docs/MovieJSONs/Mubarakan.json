@@ -1,0 +1,44 @@
+{
+  "name":"Mubarakan",
+  "director":{
+    "name":"Anees Bazmee"
+  },
+  "rating":2.5,
+  "releaseDate":"28-07-2017",
+  "writer":"Rupinder Chahal, Balwinder Singh Janjua, Rajesh Chawla",
+  "actors":[
+    {
+      "name":"Anil Kapoor"
+    },
+    {
+      "name":"Arjun Kapoor"
+    },
+    {
+      "name":"Ileana D'Cruz"
+    },
+    {
+      "name":"Athiya Shetty"
+    },
+    {
+      "name":"Neha Sharma"
+    },
+    {
+      "name":"Pavan Malhotra"
+    },
+    {
+      "name":"Ratna Pathak Shah"
+    },
+    {
+      "name":"Karan Kundra"
+    },
+    {
+      "name":"Rahul Dev"
+    },
+    {
+      "name":"Gurpal Singh"
+    }
+  ],
+  "review":"A decent family comedy that never irritates but gives flashy nice moments. Combined with good acting and direction, this is definitely a one-time decent watch.\n\nStoryline Rating: 3\n\nActing Rating: 3\nAnil Kapoor: 3\nArjun Kapoor: 3\nIleana D'Cruz: 3\nAthiya Shetty: 2\nNeha Sharma: 2\nPavan Malhotra: 3\nRatna Pathak Shah: 3\nKaran Kundra: 2\nRahul Dev: 3\nGurpal Singh: 3\n\nDirection Rating: 3\n\nMusic Rating: 2\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/10/maxresdefault.jpg",
+  "typeIds":[2,3,4,7]
+}

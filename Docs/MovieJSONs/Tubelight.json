@@ -1,0 +1,32 @@
+{
+  "name":"Tubelight",
+  "director":{
+    "name":"Kabir Khan"
+  },
+  "rating":2.5,
+  "releaseDate":"23-06-2017",
+  "writer":"Kabir Khan",
+  "actors":[
+    {
+      "name":"Salman Khan"
+    },
+    {
+      "name":"Sohail Khan"
+    },
+    {
+      "name":"Om Puri"
+    },
+    {
+      "name":"Mohammed Zeeshan Ayyub"
+    },
+    {
+      "name":"Yashpal Sharma"
+    },
+    {
+      "name":"Isha Talwar"
+    }
+  ],
+  "review":"Nothing special in this cute flick but it's only Salman whose innocence and honest acting makes it a decent watch. The way he stayed in his character throughout was remarkable.\n\nStoryline Rating: 2\n\nActing Rating: 3\nSalman Khan: 4\nSohail Khan: 2\nOm Puri: 3\nMohammed Zeeshan Ayyub: 2\nYashpal Sharma: 3\nIsha Talwar: 3\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 3\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/10/tubelight2-mosstory_647_042617013417.jpg",
+  "typeIds":[2,7]
+}

@@ -1,0 +1,29 @@
+{
+  "name":"Newton",
+  "director":{
+    "name":"Amit Masurkar"
+  },
+  "rating":3,
+  "releaseDate":"22-09-2017",
+  "writer":"Amit Masurkar",
+  "actors":[
+    {
+      "name":"Rajkummar Rao"
+    },
+    {
+      "name":"Pankaj Tripathi"
+    },
+    {
+      "name":"Anjali Patil"
+    },
+    {
+      "name":"Raghuvir Yadav"
+    },
+    {
+      "name":"Sanjay Mishra"
+    }
+  ],
+  "review":"Good theme, good storyline, great acting but lacks a required punch. The direction is sub-standard which lacks to elevate the otherwise wonderful performances by all the actors.\n\nStoryline Rating: 3\n\nActing Rating: 3\nRajkummar Rao: 3\nPankaj Tripathi: 3\nAnjali Patil: 3\nRaghuvir Yadav: 3\nSanjay Mishra: 3\n\nDirection Rating: 3\n\nMusic Rating: 2\n\nCinematography: 2\n\nEditing: 3",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/10/rajkummar-rao-plays-the-lead-in-newton_c14f4c6e-9312-11e7-b219-301a51d93d0d.jpg",
+  "typeIds":[1,2]
+}

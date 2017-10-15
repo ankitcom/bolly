@@ -1,0 +1,35 @@
+{
+  "name":"A Death in the Gunj",
+  "director":{
+    "name":"Konkona Sen Sharma"
+  },
+  "rating":2,
+  "releaseDate":"02-06-2017",
+  "writer":"Konkona Sen Sharma",
+  "actors":[
+    {
+      "name":"Gulshan Devaiah"
+    },
+    {
+      "name":"Kalki Koechlin"
+    },
+    {
+      "name":"Vikrant Massey"
+    },
+    {
+      "name":"Om Puri"
+    },
+    {
+      "name":"Jim Sarbh"
+    },
+    {
+      "name":"Ranvir Shorey"
+    },
+    {
+      "name":"Tillotama Shome"
+    }
+  ],
+  "review":"A complete waste of all the talent with a blunt and senseless storyline.\n\nStoryline Rating: 2\n\nActing Rating: 2\nGulshan Devaiah: 2\nKalki Koechlin: 2\nVikrant Massey: 2\nOm Puri: 2\nJim Sarbh: 2\nRanvir Shorey: 2\nTillotama Shome: 2\n\nDirection Rating: 2\n\nMusic Rating: 2\n\nCinematography: 2\n\nEditing: 2",
+  "imageUrl":"https://maggyreviewsdotcom.files.wordpress.com/2017/10/b3a1154c-4674-11e7-ae7e-b192f5497e3d.jpg",
+  "typeIds":[1,2]
+}
